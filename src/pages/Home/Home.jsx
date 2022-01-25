@@ -1,16 +1,23 @@
 import React from "react";
 import styles from "./Home.module.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Card from "../../components/shared/Card/Card";
 import Button from "../../components/shared/Button/Button";
 
 const Home = () => {
+
   const signinLink = {
       color: "#0077ff",
       fontWeight: 'bold',
       textDecoration: 'none',
       marginLeft: '10px'
   };
+
+  const history = useHistory();
+
+  function startRegister () {
+    history.push('/register');
+  }
 
   return (
     <div className={styles.cardWrapper}>
@@ -21,7 +28,7 @@ const Home = () => {
           sure nothing breaks :)
         </p>
         <div>
-          <Button text="Get your username" />
+          <Button onclick={startRegister} text="Get your username" />
         </div>
         <div className={styles.signinWrapper}>
           <span className={styles.hasInvite}>Have an invite text?</span>
